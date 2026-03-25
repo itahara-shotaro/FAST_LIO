@@ -28,6 +28,11 @@ publish:
     scan_publish_en:  true       # false: close all the point cloud output
     dense_publish_en: true       # false: low down the points number in a global-frame point clouds scan.
     scan_bodyframe_pub_en: true  # true: output the point cloud scans in IMU-body-frame
+    ikd_tree_map:
+        enable: true
+        pc2_topic_name: map
+        frame_name: map
+        pcl_save_trigger_topic_name: save_trigger # rising edge on this std_msgs/bool topic saves the current map as a pcd file
 
 pcd_save:
     pcd_save_en: false
