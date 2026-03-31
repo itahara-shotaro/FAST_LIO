@@ -98,6 +98,7 @@ bool   scan_pub_en = false, dense_pub_en = false, scan_body_pub_en = false;
 bool   ikd_tree_map_pub_en = false;
 string ikd_tree_map_pc2_topic_name = "ikd_tree_map", pcl_save_trigger_topic_name = "pcl_save_trigger";
 string pc2_map_frame_name = "map";
+bool environment_saved = false;
 
 vector<vector<int>>  pointSearchInd_surf; 
 vector<BoxPointType> cub_needrm;
@@ -409,8 +410,12 @@ void imu_cbk(const sensor_msgs::Imu::ConstPtr &msg_in)
 }
 
 void pcl_save_trigger_cbk(const std_msgs::Bool::ConstPtr &msg_in){
-    //2do
-    return;
+    if(not environment_saved and msg_in->data){
+        environment_saved = msg_in->data;
+        PointCloudXYZI map;
+        ikdtree.flatten(ikdtree.Root_Node, map.points, NOT_RECORD);
+        pcl::io::savePCDFileBinary("test.pcd", map);
+    }
 }
 
 double lidar_mean_scantime = 0.0;
