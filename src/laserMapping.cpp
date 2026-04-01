@@ -822,8 +822,8 @@ int main(int argc, char** argv)
     nh.param<bool>("publish/ikd_tree_map/enable", ikd_tree_map_pub_en, true);
     nh.param<string>("publish/ikd_tree_map/pc2_topic_name",ikd_tree_map_pc2_topic_name,"ikd_tree_map");
     nh.param<string>("publish/ikd_tree_map/pcl_save_trigger_topic_name", pcl_save_trigger_topic_name, "pcl_save_trigger");
-    nh.param<string>("frame_id/origin", origin_frame_id, "camera_init");
-    nh.param<string>("frame_id/body", body_frame_id, "body");
+    nh.param<string>("frame/origin", origin_frame_id, "camera_init");
+    nh.param<string>("frame/body", body_frame_id, "body");
     
     nh.param<int>("max_iteration",NUM_MAX_ITERATIONS,4);
     nh.param<string>("map_file_path",map_file_path,"");

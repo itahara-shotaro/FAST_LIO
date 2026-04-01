@@ -5,7 +5,7 @@ common:
     time_offset_lidar_to_imu: 0.0 # Time offset between lidar and IMU calibrated by other algorithms, e.g. LI-Init (can be found in README).
                                   # This param will take effect no matter what time_sync_en is. So if the time offset is not known exactly, please set as 0.0
 
-frame_id:
+frame:
     origin: lio_origin
     body: body
 
